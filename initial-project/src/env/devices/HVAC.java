@@ -16,8 +16,8 @@ public class HVAC extends Artifact {
 		defineObsProperty("temperature",temperature);
  		//defineObsProperty("preferred_temperature",preferredTemperature);
 
-		sensorPanel = new TemperatureSensorPanel(this,temp);
-		sensorPanel.setVisible(true);
+		//sensorPanel = new TemperatureSensorPanel(this,temp);
+		//sensorPanel.setVisible(true);
 	}
 
 	@OPERATION void startHeating(){
@@ -46,7 +46,8 @@ public class HVAC extends Artifact {
 		while (!getObsProperty("state").stringValue().equals("idle")){
 			double temp = prop.doubleValue();
 			prop.updateValue(temp+step);
-			sensorPanel.setTempValue((int)(Math.round(temp+step)));
+			//sensorPanel.setTempValue((int)(Math.round(temp+step)));
+			System.out.println("temp = "+(int)(Math.round(temp+step)));
 			this.await_time(100);
 		}
 	}
