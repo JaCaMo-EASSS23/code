@@ -1,5 +1,5 @@
 tasks:
-  - before: yes | sdk install java 17.0.6-tem && ./gradlew build
+  - before: yes | sdk install java 17.0.6-tem && cd initial-project && ./gradlew build
 
 vscode:
   extensions:
