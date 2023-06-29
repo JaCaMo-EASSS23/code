@@ -1,0 +1,9 @@
+mas smart_room {
+    agent rc : room_agent.asl {
+    	  focus: hvac::room.hvac
+    }
+
+  	workspace room {
+        artifact hvac: devices.HVAC(10)
+    }
+}
