@@ -16,7 +16,11 @@ This guide contains practical material for the tutorial _Multi-Agent Oriented Pr
 
 = JaCaMo Setup
 
-(gitpod)
+The simplest way to run the examples and do the exercises is by using https://gitpod.io/#https://github.com/jomifred/easss-23[GitPod, following this link].
+----
+cd initial-project
+./gradlew
+----
 
 = Agent Dimension
 
