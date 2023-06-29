@@ -14,6 +14,10 @@ This guide contains practical material for the tutorial _Multi-Agent Oriented Pr
 
 (SmartRoom)
 
+initially we consider one agent in a room ....
+
+image:doc/figs/smart-room1.png[]
+
 = JaCaMo Setup
 
 The simplest way to run the examples and do the exercises is by using https://gitpod.io/#https://github.com/jomifred/easss-23[GitPod, following this link] (a github account is required).

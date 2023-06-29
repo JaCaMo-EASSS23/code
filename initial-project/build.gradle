@@ -1,6 +1,7 @@
 defaultTasks 'run'
 
 apply plugin: 'java'
+apply from: '.jcm-deps.gradle' // this file contains dependencies declared in the .jcm files
 
 
 version '1.0'
