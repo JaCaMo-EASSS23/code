@@ -1,0 +1,26 @@
+# Multi-Agent Oriented Programming Tutorial
+:toc: right
+:author: 23rd European Agent Systems Summer School
+:date: July 2023
+:source-highlighter: coderay
+:coderay-linenums-mode: inline
+:icons: font
+:prewrap!:
+
+This guide contains practical material for the tutorial _Multi-Agent Oriented Programming_ at https://easss23.fit.cvut.cz[23rd European Agent Systems Summer] School, 2023, Prague.
+
+
+= Scenario
+
+(SmartRoom)
+
+= JaCaMo Setup
+
+(gitpod)
+
+= Agent Dimension
+
+= Environment Dimension
+
+= Organisation Dimension 
+
