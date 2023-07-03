@@ -18,7 +18,7 @@ initially we consider one agent in a room ....
 
 image:doc/figs/smart-room1.png[]
 
-= JaCaMo Setup
+= JaCaMo Setup (Lab 1)
 
 The simplest way to run the examples and do the exercises is by using https://gitpod.io/#https://github.com/jomifred/easss-23[GitPod, following this link] (a github account is required).
 
@@ -28,9 +28,29 @@ cd initial-project
 ./gradlew
 ----
 
-= Agent Dimension
 
-= Environment Dimension
+= Agent Dimension (Lab 2)
 
-= Organisation Dimension 
+Activities and Exercises (ideas)
+
+(after introduction to agent and execution)
+
+- change the preferred temperature
+
+- [add wait to avoid busy waiting; what are the problem, could the wait of 10 minutes? how to solve? point to doc of wait and wait for an event]
+
+- [add a plan to print the state of the HVAC]
+  [if "off" print "turned of", if "on" print "turned on"]
+  [enforce unification instead of if]
+
+- [create a plan to stop and use jason cli to trigger it -- difficult without REPL]
+
+- [another implementation with !temperature(XX) goal that works; then add two goals; [give the code for that]; exercise is to understand the code, the agent behaviour and explain the problem]
+
+= Agent (Communication) Dimension (Lab 3)
+
+
+= Environment Dimension (Lab 4)
+
+= Organisation Dimension (Lab 5)
 
