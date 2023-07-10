@@ -24,7 +24,7 @@ The simplest way to run the examples and do the exercises is by using https://gi
 
 To run the initial project, type the commands below in the terminal:
 ----
-cd initial-project
+cd ag-smart-room1
 ./gradlew
 ----
 
