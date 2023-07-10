@@ -12,7 +12,7 @@ preference(20).
 +!keep_temperature
    <- !keep_temperature.
 
-+!wait_until(T) : hvac::temperature(T)  <- stopAirConditioner.
++!wait_until(T) : hvac::temperature(T) <- stopAirConditioner.
 +!wait_until(T) <- !wait_until(T). // busy waiting (!)
 
 

@@ -1,9 +1,9 @@
 mas smart_room {
-    agent rc : room_agent.asl {
+    agent rc : room_controller.asl {
     	  focus: hvac::room.hvac
     }
 
   	workspace room {
-        artifact hvac: devices.HVAC(10)
+        artifact hvac: devices.HVAC(30)
     }
 }
