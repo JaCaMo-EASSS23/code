@@ -1,3 +1,6 @@
+// smart room single agent
+// the rc 
+
 mas smart_room {
     agent rc : room_controller.asl {
     	  focus: hvac::room.hvac

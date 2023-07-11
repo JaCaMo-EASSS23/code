@@ -34,7 +34,7 @@ cd hello-world
 Activities and Exercises (ideas)
 
 ----
-cd ag/smart-room1
+cd ag/smart-room-sg
 ./gradlew
 ----
 
@@ -54,6 +54,11 @@ cd ag/smart-room1
 - [another implementation with !temperature(XX) goal that works; then add two goals; [give the code for that]; exercise is to understand the code, the agent behaviour and explain the problem]
 
 = Agent (Communication) Dimension (Lab 2)
+
+----
+cd ag/smart-room-ma
+./gradlew
+----
 
 - example of askOne sync and async
 
