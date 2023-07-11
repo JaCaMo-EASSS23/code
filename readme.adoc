@@ -66,9 +66,16 @@ cd ag/smart-room-ma
 
 - [case of many source and belief removal]
 
-- [case of source of source]s
+- [case of source of sources]
+
+- [increment id]
 
 - [use DF to find participants]
+
+- [implement timeout]
+
+
+- [initial impl is not the voting, it is a consensus based on average. add call for candidates step, then options in open voting, pa choose, rc select the most voted]
 
 
 = Environment Dimension (Lab 3)

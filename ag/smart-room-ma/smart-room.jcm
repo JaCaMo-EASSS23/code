@@ -1,21 +1,20 @@
 // smart room multi agent
 // rc + personal assistents
 
+// very simple kind of "voting"
+
 mas smart_room {
 
     agent pa1 : personal_assistant.asl {
         beliefs: pref_temp(20)
-        join: room
     }
 
     agent pa2 : personal_assistant.asl {
         beliefs: pref_temp(30)
-        join: room
     }
 
     agent pa3 : personal_assistant.asl {
         beliefs: pref_temp(22)
-        join: room
     }
 
     agent rc : room_controller.asl {
