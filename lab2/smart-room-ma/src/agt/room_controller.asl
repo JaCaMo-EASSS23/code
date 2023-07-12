@@ -1,5 +1,4 @@
-
-+!voting(Options)
++!voting(Options) 
    <- !open_voting(Id,Options);
       !wait_votes(Id);
       !close_voting(Id).
