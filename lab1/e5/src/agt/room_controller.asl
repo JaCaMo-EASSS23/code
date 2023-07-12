@@ -13,8 +13,12 @@ preference(20).
    <- !keep_temperature.
 
 +!wait_until(T) : temperature(T) <- stopAirConditioner.
-+!wait_until(T) <- !wait_until(T).
++!wait_until(T) 
+    <- .wait(3000); // wait 3 seconds
+       !wait_until(T).
 
++state("cooling") <- println("so cool").
++state("heating") <- println("so hot").
 
 { include("$jacamoJar/templates/common-cartago.asl") }
 { include("$jacamoJar/templates/common-moise.asl") }

@@ -12,7 +12,7 @@ This guide contains practical material for the tutorial _Multi-Agent Oriented Pr
 
 == Smart Room Scenario
 
-The objective is to develop an MAOP-system to control the temperature of a room so that it reaches some desired temperature
+The objective is to develop an MAOP system to control the temperature of a room so that it reaches some desired temperature
 
 * The room is equipped with a "Heating, Ventilating and Air  Conditioning" (HVAC), that provides
 
@@ -28,7 +28,7 @@ image:doc/figs/smart-room1.png[]
 
 === Task 1: run the the initial project for the smart room scenario
 
-The simplest way to run the examples and do the exercises is by using https://gitpod.io/#https://github.com/JaCaMo-EASSS23/code[GitPod, following this link] (a github account is required).
+The simplest way to run the examples and do the exercises is by using https://gitpod.io/#https://github.com/JaCaMo-EASSS23/code[GitPod, following this link] (a github account is required). You can also work locally by cloning locally the repository https://github.com/JaCaMo-EASSS23/code. Java and VSCode should be installed in this case.
 
 To run the initial project, type the commands below in the terminal:
 ----
@@ -38,13 +38,18 @@ cd lab1/smart-room-sa
 
 === Task 2: Reading and understanding agent programs
 
-- change the preferred temperature
+* Exercise 1: open the code of the room controller agent (file `src/agt/room_controller.asl`), read the code and identify the beliefs, goals, and plans. Try to map the program to the observed behavior. 
 
-- [add wait to avoid busy waiting; what are the problem, could the wait of 10 minutes? how to solve? point to doc of wait and wait for an event]
+* Exercise 2: open the _mind inspector_ for agent `rc` and compare the beliefs there with those identified in the program. Are they the same? Are represented the same way? 
 
-- [add a plan to print the state of the HVAC]
-  [if "off" print "turned of", if "on" print "turned on"]
-  [enforce unification instead of if]
+* Exercise 3: change the program so that the target temperature is 15.
+
+* Exercise 4: add a new plan to print the current state of the HVAC.
+
+* Exercise 5: change the plans of previous exercise so that when the hvac state is `"cooling"` it is printed "so cool" and, when the state is `"heating"` it is printed "so hot".
+
+* Exercise 6: open the project in folder `lab1/e5` and take a look at the room controller program. There is a difference in the last lines (line 17). Evaluate the reasons for that modification and the its problems. Some ideas about how to fix? (no need to develop the solution in Jason.)
+
 
 - [another implementation with !temperature(XX) goal that works; then add two goals; [give the code for that]; exercise is to understand the code, the agent behaviour and explain the problem]
 
