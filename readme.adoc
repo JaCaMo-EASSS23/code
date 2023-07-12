@@ -28,7 +28,7 @@ image:doc/figs/smart-room1.png[]
 
 === Task 1: run the the initial project for the smart room scenario
 
-The simplest way to run the examples and do the exercises is by using https://gitpod.io/#https://github.com/JaCaMo-EASSS23/code[GitPod, following this link] (a github account is required). You can also work locally by cloning locally the repository https://github.com/JaCaMo-EASSS23/code. Java and VSCode should be installed in this case.
+The simplest way to run the examples and do the exercises is by using https://gitpod.io/#https://github.com/JaCaMo-EASSS23/code[GitPod, following this link] (a github account is required). You can also work locally by cloning this repository (https://github.com/JaCaMo-EASSS23/code). Java and VSCode should be installed in this case.
 
 To run the initial project, type the commands below in the terminal:
 ----
