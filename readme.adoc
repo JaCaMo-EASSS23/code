@@ -36,6 +36,15 @@ cd lab1/smart-room-sa
 ./gradlew
 ----
 
+You can see how the system react to changes in temperature by opening another terminal and executing the command:
+
+----
+curl -X POST  http://localhost:8080/workspaces/room/artifacts/hvac/properties/temperature -H 'Content-Type: application/json' -d '[ 10 ]'
+----
+
+replacing the last number 10 by the current temperature of the room.
+
+
 === Task 2: Reading and understanding agent programs
 
 * Exercise 1: open the code of the room controller agent (file `src/agt/room_controller.asl`), read the code and identify the beliefs, goals, and plans. Try to map the program to the observed behavior. 

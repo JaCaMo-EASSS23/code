@@ -56,4 +56,17 @@ public class HVAC extends Artifact {
 		ObsProperty prop = getObsProperty("temperature");
 		prop.updateValue(value);
 	}
+
+
+	// allows to change the value using REST
+	@OPERATION public void doUpdateObsProperty(String obName, Object arg) {
+        ObsProperty op = getObsProperty(obName);
+        if (op == null) {
+            defineObsProperty(obName, arg);
+        } else {
+            op.updateValues(arg);
+        }
+        System.out.println("update ob "+obName+"("+arg+")");
+    }
+
 }

@@ -25,4 +25,6 @@ mas smart_room {
     workspace room {
         artifact hvac: devices.HVAC(30)
     }
+
+    platform: jacamo.rest.JCMRest("--rest-port 8080")
 }
