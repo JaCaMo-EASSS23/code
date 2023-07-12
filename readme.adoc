@@ -48,7 +48,7 @@ cd lab1/smart-room-sa
 
 * Exercise 5: change the plans of previous exercise so that when the hvac state is `"cooling"` it is printed "so cool" and, when the state is `"heating"` it is printed "so hot".
 
-* Exercise 6: open the project in folder `lab1/e5` and take a look at the room controller program. There is a difference in the last lines (line 17). Evaluate the reasons for that modification and the its problems. Some ideas about how to fix? (no need to develop the solution in Jason.)
+* Exercise 6: open the project in folder `lab1/e6` and take a look at the room controller program. There is a difference in the last lines (line 17). Evaluate the reasons for that modification and the its problems. Some ideas about how to fix? (no need to develop the solution in Jason.)
 
 
 - [another implementation with !temperature(XX) goal that works; then add two goals; [give the code for that]; exercise is to understand the code, the agent behaviour and explain the problem]
