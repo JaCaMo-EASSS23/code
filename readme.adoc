@@ -10,7 +10,7 @@
 This guide contains practical material for the tutorial _Multi-Agent Oriented Programming_ at https://easss23.fit.cvut.cz[23rd European Agent Systems Summer] School, 2023, Prague.
 
 
-= Scenario
+== Scenario
 
 (SmartRoom)
 
@@ -18,7 +18,7 @@ initially we consider one agent in a room ....
 
 image:doc/figs/smart-room1.png[]
 
-= JaCaMo Setup (Lab 1)
+== JaCaMo Setup (Lab 1)
 
 The simplest way to run the examples and do the exercises is by using https://gitpod.io/#https://github.com/jomifred/easss-23[GitPod, following this link] (a github account is required).
 
@@ -29,7 +29,7 @@ cd hello-world
 ----
 
 
-= Agent Dimension (Lab 1)
+== Agent Dimension (Lab 1)
 
 Activities and Exercises (ideas)
 
@@ -53,7 +53,7 @@ cd ag/smart-room-sg
 
 - [another implementation with !temperature(XX) goal that works; then add two goals; [give the code for that]; exercise is to understand the code, the agent behaviour and explain the problem]
 
-= Agent (Communication) Dimension (Lab 2)
+== Agent (Communication) Dimension (Lab 2)
 
 ----
 cd ag/smart-room-ma
@@ -78,7 +78,18 @@ cd ag/smart-room-ma
 - [initial impl is not the voting, it is a consensus based on average. add call for candidates step, then options in open voting, pa choose, rc select the most voted]
 
 
-= Environment Dimension (Lab 3)
+== Environment Dimension (Lab 3)
 
-= Organisation Dimension (Lab 4)
+=== Task 1: Implement a usage interface for the voting machine
+- [define observable property `status` (with values `open`/`closed`) in the artifact's `init` method]
+- [implement operations for: `open`, `vote`, and `close`]
+
+=== Task 2: Instantiate and use a voting machine
+- [complete plan(s) for creating, starting, and stopping the voting machine]
+- [complete plan(s) for focusing on the voting machine and bidding]
+
+=== Task 3: Implement automatic closing with a countdown
+- [implement an internal operation for closing the voting machine with a countdown]
+
+== Organisation Dimension (Lab 4)
 
