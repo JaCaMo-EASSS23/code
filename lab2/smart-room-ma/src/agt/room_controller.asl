@@ -1,10 +1,3 @@
-all_pref_received(ConvId)
-  :- .count(pref_temp(ConvId,_), 3).    // equals number of votes
-
-average_pt(ConvId,T) :- .findall(UT, pref_temp(ConvId,UT), LT) &
-              LT \== [] &
-              T = math.average(LT).
-
 !voting. // agent initial goal
 
 +!voting
@@ -14,16 +7,23 @@ average_pt(ConvId,T) :- .findall(UT, pref_temp(ConvId,UT), LT) &
 
 +!open_voting(Id)
    <- Id = 1;
-      .broadcast(tell, open_voting(Id,4000)).
+      .broadcast(tell, open_voting(Id,[21,25,30],4000)).
 
-+!wait_votes(Id) <- .wait(all_pref_received(Id), 4000, _).
++!wait_votes(Id) <- .wait(all_votes_received(Id), 4000, _).
+
+all_votes_received(ConvId)
+  :- .count(vote(ConvId,_), 3).    // equals number of votes
+
 
 +!close_voting(Id)
-   <- ?average_pt(Id,T);
+   <- ?most_voted(T);
       .println("New goal to set temperature to ",T);
       .broadcast(tell, close_voting(Id,T));
       !temperature(T);
    .
+most_voted(T)
+   :- T = 20.
+
 
 tolerance(2). // used in temp_management
 { include("temp_management.asl") }
