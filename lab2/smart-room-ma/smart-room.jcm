@@ -19,6 +19,7 @@ mas smart_room {
 
     agent rc : room_controller.asl {
         focus: room.hvac
+        goals: voting([21,25,30])
     }
 
     workspace room {
