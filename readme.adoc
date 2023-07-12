@@ -36,7 +36,7 @@ cd lab1/smart-room-sa
 ./gradlew
 ----
 
-You can see how the system react to changes in temperature by opening another terminal and executing the command:
+You can see how the system reacts to changes in temperature by opening another terminal and executing the command:
 
 ----
 curl -X POST  http://localhost:8080/workspaces/room/artifacts/hvac/properties/temperature -H 'Content-Type: application/json' -d '[ 10 ]'
