@@ -20,11 +20,11 @@ image:doc/figs/smart-room1.png[]
 
 == JaCaMo Setup (Lab 1)
 
-The simplest way to run the examples and do the exercises is by using https://gitpod.io/#https://github.com/jomifred/easss-23[GitPod, following this link] (a github account is required).
+The simplest way to run the examples and do the exercises is by using https://gitpod.io/#https://github.com/JaCaMo-EASSS23/code[GitPod, following this link] (a github account is required).
 
 To run the initial project, type the commands below in the terminal:
 ----
-cd hello-world
+cd lab1/smart-room-sg
 ./gradlew
 ----
 
