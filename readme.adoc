@@ -10,15 +10,23 @@
 This guide contains practical material for the tutorial _Multi-Agent Oriented Programming_ at https://easss23.fit.cvut.cz[23rd European Agent Systems Summer] School, 2023, Prague.
 
 
-== Scenario
+== Smart Room Scenario
 
-(SmartRoom)
+The objective is to develop an MAOP-system to control the temperature of a room so that it reaches some desired temperature
 
-initially we consider one agent in a room ....
+* The room is equipped with a "Heating, Ventilating and Air  Conditioning" (HVAC), that provides
+
+** the current room temperature
+** operations to start cooling, start heating, and stop the machine
+
+* initially we have one agent that has the goal of maintaining a certain temperature
 
 image:doc/figs/smart-room1.png[]
 
-== JaCaMo Setup (Lab 1)
+
+== Agent Dimension (Lab 1)
+
+=== Task 1: run the the initial project for the smart room scenario
 
 The simplest way to run the examples and do the exercises is by using https://gitpod.io/#https://github.com/JaCaMo-EASSS23/code[GitPod, following this link] (a github account is required).
 
@@ -28,18 +36,7 @@ cd lab1/smart-room-sa
 ./gradlew
 ----
 
-
-== Agent Dimension (Lab 1)
-
-Activities and Exercises (ideas)
-
-----
-cd ag/smart-room-sg
-./gradlew
-----
-
-
-(after introduction to agent and execution)
+=== Task 2: Reading and understanding agent programs
 
 - change the preferred temperature
 
@@ -49,14 +46,17 @@ cd ag/smart-room-sg
   [if "off" print "turned of", if "on" print "turned on"]
   [enforce unification instead of if]
 
+- [another implementation with !temperature(XX) goal that works; then add two goals; [give the code for that]; exercise is to understand the code, the agent behaviour and explain the problem]
+
+=== Task 3: Improve the implementation
+
 - [create a plan to stop and use jason cli to trigger it -- difficult without REPL]
 
-- [another implementation with !temperature(XX) goal that works; then add two goals; [give the code for that]; exercise is to understand the code, the agent behaviour and explain the problem]
 
 == Agent (Communication) Dimension (Lab 2)
 
 ----
-cd ag/smart-room-ma
+cd lab2/smart-room-ma
 ./gradlew
 ----
 
