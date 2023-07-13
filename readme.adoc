@@ -49,7 +49,7 @@ replacing the last number 10 by the current temperature of the room.
 
 * Exercise 1: open the code of the room controller agent (file `src/agt/room_controller.asl`), read the code and identify the beliefs, goals, and plans. Try to map the program to the observed behavior. 
 
-* Exercise 2: open the _mind inspector_ for agent `rc` and compare the beliefs there with those identified in the program. Are they the same? Are represented the same way? 
+* Exercise 2: open the _mind inspector_ for agent `rc` and compare the beliefs there with those identified in the program. Are they the same? Are they represented the same way? 
 
 * Exercise 3: change the program so that the target temperature is 15.
 
@@ -57,9 +57,9 @@ replacing the last number 10 by the current temperature of the room.
 
 * Exercise 4: add a new plan to print the current state of the HVAC.
 
-* Exercise 5: change the plans of previous exercise so that when the hvac state is `"cooling"` it is printed "so cool" and, when the state is `"heating"` it is printed "so hot".
+* Exercise 5: change the plans of the previous exercise so that when the hvac state is `"cooling"` it is printed "so cool" and, when the state is `"heating"` it is printed "so hot".
 
-* Exercise 6: open the project in folder `lab1/e6` and take a look at the room controller program. There is a difference in the last lines (line 17). Evaluate the reasons for that modification and the its problems. Some ideas about how to fix? (no need to develop the solution in Jason.)
+* Exercise 6: open the project in folder `lab1/e6` and take a look at the room controller program. There is a difference in the last lines (line 17). Evaluate the reasons for that modification and its problems. Some ideas about how to fix?
 
 * Exercise 7: open the project in folder `lab1/e7` and take a look at the room controller program. The target temperature is as an argument of goal `keep_temperature`. The project, as it is, works. But what happens if a line like `!keep_temperature(35)` is added in the program? Explain the behavior produced buy this change.
 
@@ -68,7 +68,7 @@ replacing the last number 10 by the current temperature of the room.
 
 === Task 1: experiment different performatives
 
-* open the project `lab2/e1`, read the `.jcm` file and the program of the two agents, and execute the application. Now change the plan of bob to:
+* Exercise 1: open the project `lab2/e1`, read the `.jcm` file and the program of the two agents, and execute the application. Now change the plan of Bob to:
 +
 ----
 +!start 
@@ -86,9 +86,9 @@ run the project again and notice the difference. Now change the plan again to
    .
 ----
 +
-run the project again and notice the difference.
+run the project again and notice the difference. 
 
-* open the project `lab2/e2`, read the `.jcm` file and the program of the three agents, and execute the application. Use the mind inspector to see the beliefs of the agents. Now change the plan of alice to:
+* Exercise 2: open the project `lab2/e2`, read the `.jcm` file and the program of the three agents, and execute the application. Use the mind inspector to see the beliefs of the agents (specially Alice). Now change the plan of Alice to:
 +
 ----
 +!start
@@ -99,25 +99,26 @@ run the project again and notice the difference.
 +
 run the project again and notice the difference. 
 
+* Exercise 3: open the project `lab2/e3`, read the program of the three agents, and execute the application. List the sequence of exchanged messages and their performatives. Finally, use the mind inspector "link of plans" (in the bottom of the page) to see the plans of Alice.
 
 
-=== Task 2: run the project for the voting protocol
+=== Task 2: Improve the project for the voting protocol
 
-To run the project, type the commands below in the terminal:
+You can run the project with the following commands:
 ----
 cd lab2/smart-room-ma
 ./gradlew
 ----
 
-- example of askOne sync and async
+* Exercise 4: change the list of options offered to the personal assistants. 
 
-- [case of many source and belief removal]
+* Exercise 5: run the voting protocol twice, with two different options and notice possible problems.
 
-- [case of source of sources]
+* Exercise 6: currently, the `id` of the conversation is fixed to 1, this may cause problems when counting the votes. Change the program of the room controller so that the identification is a parameter for the goal `voting`.
 
-- [increment id]
+* Exercise 7: upgrade the previous version so that the conversation id value is incremented each time a voting protocol is executed.
 
-- [use DF to find participants]
+* Exercise 8: add a new personal assistant. Does the application works properly? The rule `all_votes_received` is hard-coded for 3 participants. How to make it flexible? Think about possible solutions. Hints: see the internal actions link:https://jason.sourceforge.net/api/jason/stdlib/all_names.html[`.all_names`] and link:https://jason.sourceforge.net/api/jason/stdlib/df_register.html[`.df_register`].
 
 
 == Environment Dimension (Lab 3)
