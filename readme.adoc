@@ -26,7 +26,7 @@ image:doc/figs/smart-room1.png[]
 
 == Agent Dimension (Lab 1)
 
-=== Task 1: run the the initial project for the smart room scenario
+=== Task 1: run the initial project for the smart room scenario
 
 The simplest way to run the examples and do the exercises is by using https://gitpod.io/#https://github.com/JaCaMo-EASSS23/code[GitPod, following this link] (a github account is required). You can also work locally by cloning this repository (https://github.com/JaCaMo-EASSS23/code). Java and VSCode should be installed in this case.
 
@@ -64,16 +64,52 @@ replacing the last number 10 by the current temperature of the room.
 * Exercise 7: open the project in folder `lab1/e7` and take a look at the room controller program. The target temperature is as an argument of goal `keep_temperature`. The project, as it is, works. But what happens if a line like `!keep_temperature(35)` is added in the program? Explain the behavior produced buy this change.
 
 
-== Agent (Communication) Dimension (Lab 2)
+== Agent Communication (Lab 2)
 
+=== Task 1: experiment different performatives
+
+* open the project `lab2/e1`, read the `.jcm` file and the program of the two agents, and execute the application. Now change the plan of bob to:
++
+----
++!start 
+   <- .send(alice, tell, hello);
+      .send(alice, tell, hello);
+   .
+----
++
+run the project again and notice the difference. Now change the plan again to
++
+----
++!start 
+   <- .send(alice, signal, hello);
+      .send(alice, signal, hello);
+   .
+----
++
+run the project again and notice the difference.
+
+* open the project `lab2/e2`, read the `.jcm` file and the program of the three agents, and execute the application. Use the mind inspector to see the beliefs of the agents. Now change the plan of alice to:
++
+----
++!start
+   <- .wait(500);
+      .send(karlos, askOne, vl(_), vl(X));
+      .println(X).
+----
++
+run the project again and notice the difference. 
+
+
+
+=== Task 2: run the project for the voting protocol
+
+To run the project, type the commands below in the terminal:
 ----
 cd lab2/smart-room-ma
 ./gradlew
 ----
 
 - example of askOne sync and async
-
-- [give some with signal, ask to change to tell and notice the difference]
 
 - [case of many source and belief removal]
 
@@ -82,11 +118,6 @@ cd lab2/smart-room-ma
 - [increment id]
 
 - [use DF to find participants]
-
-- [implement timeout]
-
-
-- [initial impl is not the voting, it is a consensus based on average. add call for candidates step, then options in open voting, pa choose, rc select the most voted]
 
 
 == Environment Dimension (Lab 3)
