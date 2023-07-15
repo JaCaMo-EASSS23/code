@@ -7,19 +7,17 @@
 :icons: font
 :prewrap!:
 
-This guide contains practical material for the tutorial _Multi-Agent Oriented Programming_ at https://easss23.fit.cvut.cz[23rd European Agent Systems Summer] School, 2023, Prague.
+This guide contains practical material for the _Multi-Agent Oriented Programming_ tutorial at the https://easss23.fit.cvut.cz[23rd European Agent Systems Summer School] (Prague, 2023).
 
 
 == Smart Room Scenario
 
-The objective is to develop an MAOP system to control the temperature of a room so that it reaches some desired temperature
+The objective is to develop an MAOP system to control the temperature of a room so that it reaches some desired target temperature. The room is equipped with a "Heating, Ventilating, and Air  Conditioning" (HVAC), that provides:
 
-* The room is equipped with a "Heating, Ventilating and Air  Conditioning" (HVAC), that provides
+* the current room temperature
+* operations to start cooling, start heating, and stop the machine
 
-** the current room temperature
-** operations to start cooling, start heating, and stop the machine
-
-* initially we have one agent that has the goal of maintaining a certain temperature
+Initially, we have one agent that has the goal of maintaining a certain temperature.
 
 image:doc/figs/smart-room1.png[]
 
@@ -132,6 +130,10 @@ cd lab2/smart-room-ma
 
 === Task 3: Implement automatic closing with a countdown
 - [implement an internal operation for closing the voting machine with a countdown]
+
+=== Task 4: Implement a linked operation
+- [implement a linked operation to publish to dweet.io]
+
 
 == Organisation Dimension (Lab 4)
 
