@@ -26,9 +26,9 @@ image:doc/figs/smart-room1.png[]
 
 == Agent Dimension (Lab 1)
 
-=== Task 1: run the initial project for the smart room scenario
+=== Task 1: Run the initial project for the smart room scenario
 
-The simplest way to run the examples and do the exercises is by using https://gitpod.io/#https://github.com/JaCaMo-EASSS23/code[GitPod, following this link] (a github account is required). You can also work locally by cloning this repository (https://github.com/JaCaMo-EASSS23/code). Java and VSCode should be installed in this case.
+The simplest way to run the examples and do the exercises is by using https://gitpod.io/#https://github.com/JaCaMo-EASSS23/code[GitPod, following this link] (a github account is required). You can also work locally by cloning this repository (https://github.com/JaCaMo-EASSS23/code). Java JDK 17+ and VSCode should be installed locally in this case.
 
 To run the initial project, type the commands below in the terminal:
 ----
@@ -47,7 +47,7 @@ replacing the last number 10 by the current temperature of the room.
 
 === Task 2: Reading and understanding agent programs
 
-* Exercise 1: open the code of the room controller agent (file `src/agt/room_controller.asl`), read the code and identify the beliefs, goals, and plans. Try to map the program to the observed behavior. 
+* Exercise 1: open the code of the room controller agent (file `src/agt/room_controller.asl`), read the code and identify the beliefs, goals, and plans. Try to map the program to the observed behavior.
 
 * Exercise 2: open the _mind inspector_ for agent `rc` and compare the beliefs there with those identified in the program. Are they the same? Are represented the same way? 
 
@@ -59,14 +59,14 @@ replacing the last number 10 by the current temperature of the room.
 
 * Exercise 5: change the plans of previous exercise so that when the hvac state is `"cooling"` it is printed "so cool" and, when the state is `"heating"` it is printed "so hot".
 
-* Exercise 6: open the project in folder `lab1/e6` and take a look at the room controller program. There is a difference in the last lines (line 17). Evaluate the reasons for that modification and the its problems. Some ideas about how to fix? (no need to develop the solution in Jason.)
+* Exercise 6: open the project in folder `lab1/e6` and take a look at the room controller program. There is a difference in the last lines (line 17). Evaluate the reasons for that modification and its problems. Some ideas about how to fix? (no need to develop the solution in Jason.)
 
-* Exercise 7: open the project in folder `lab1/e7` and take a look at the room controller program. The target temperature is as an argument of goal `keep_temperature`. The project, as it is, works. But what happens if a line like `!keep_temperature(35)` is added in the program? Explain the behavior produced buy this change.
+* Exercise 7: open the project in folder `lab1/e7` and take a look at the room controller program. The target temperature is as an argument of goal `keep_temperature`. The project, as it is, works. But what happens if a line like `!keep_temperature(35)` is added in the program? Explain the behavior produced by this change.
 
 
 == Agent Communication (Lab 2)
 
-=== Task 1: experiment different performatives
+=== Task 1: Experiment different performatives
 
 * open the project `lab2/e1`, read the `.jcm` file and the program of the two agents, and execute the application. Now change the plan of bob to:
 +
@@ -101,7 +101,7 @@ run the project again and notice the difference.
 
 
 
-=== Task 2: run the project for the voting protocol
+=== Task 2: Run the project for the voting protocol
 
 To run the project, type the commands below in the terminal:
 ----
@@ -133,5 +133,16 @@ cd lab2/smart-room-ma
 === Task 3: Implement automatic closing with a countdown
 - [implement an internal operation for closing the voting machine with a countdown]
 
-== Organisation Dimension (Lab 4)
+== Organization Dimension (Lab 4)
 
+=== Task 1: Reading and understanding an organization
+
+* Exercise 1: in this project the purpose is to coordinate the actions of agents when posting on a forum. There are two agents alice and bob; alice is responsible for posting a message and bob for retrieving the post. Open the project `lab4/e1`, read the `.jcm` file and the agents' program, and execute the application. Explain why is the displayed `Received message` content is empty? What does happen if `<- .wait(2000) ; retrievePost(-1) ;` replaces of line 7 in `src/agt/forum_agents.asl`?
+
+* Exercise 2: open the project `lab4/e2`, read the XML organization specification and identify the organization roles, goals, missions and norms. Execute the application. open the _organization inspector_ (http://localhost:3171) and verify the state of the agents' goals. What are the advantages and disadvantages of the organization approach to coordination?
+
+* Exercise 3: comment out the lines 15-21 in `src/agt/forum_agents` and execute the application. Use the _organization inspector_ to verify why the application does not execute properly. Hint: Look at the msg_vacation scheme.
+
+=== Task 2: Changing the organization
+
+=== Task 3: Agents deploying their organization
