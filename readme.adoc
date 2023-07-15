@@ -189,10 +189,30 @@ If you enjoyed this practical session, make sure to check out https://cartago.so
 
 * Exercise 1: in this project the purpose is to coordinate the actions of agents when posting on a forum. There are two agents alice and bob; alice is responsible for posting a message and bob for retrieving the post. Open the project `lab4/e1`, read the `.jcm` file and the agents' program, and execute the application. Explain why is the displayed `Received message` content is empty? What does happen if `<- .wait(2000) ; retrievePost(-1) ;` replaces of line 7 in `src/agt/forum_agents.asl`?
 
-* Exercise 2: open the project `lab4/e2`, read the XML organization specification and identify the organization roles, goals, missions and norms. Execute the application. open the _organization inspector_ (http://localhost:3171) and verify the state of the agents' goals. What are the advantages and disadvantages of the organization approach to coordination?
+* Exercise 2: open the project `lab4/e2`, read the XML organization specification and identify the organization roles, goals, missions and norms. Execute the application, open the _organization inspector_ (http://localhost:3171) and verify the state of the agents' goals. What are the advantages and disadvantages of the organization approach to coordination compared with the approach in Exercise 1?
 
 * Exercise 3: comment out the lines 15-21 in `src/agt/forum_agents` and execute the application. Use the _organization inspector_ to verify why the application does not execute properly. Hint: Look at the msg_vacation scheme.
 
 === Task 2: Changing the organization
 
-=== Task 3: Agents deploying their organization
+* Exercise 1: open the project `lab4/smart-room-org`, execute the application and analyze the results of the group and scheme in the _organization inspector_.
+
+* Exercise 2: change the maximum number of `assistant` to 2. Execute the application. What is the outcome? Change the organization to solve the problem and keeping the maximum number of `assistant` to 2?
+
+* Exercise 3: change the order of `announce_options` and `open_voting` in the scheme `decide_temp`. What changes do you observe in the outcome?
+
+* Exercise 4: parallelize the execution of the `announce_options` and `open_voting`. Analyze the result of the new scheme in the _organization inspector_.
+
+=== Task 3: Handling the state of the organization
+
+* Exercise 1: implement a plan in the `room_controller` agent that displays all fulfilled obligations. Hint: consider the organizational event `oblFulfilled/1`.
++
+----
+oblFulfilled(O) : Obligation O was fulfilled
+----
+
+* Exercise 2: implement a plan for the `personal_assistant` agents that reacts to the achievement of the organizational goal `closing_voting` by printing the current temperature. Hint: consider the organizational belief `goalState/5`.
++
+----
+goalState(S, G, LC, LA, T) : Goal G, of scheme S, is in state T (possible values for T are waiting, enabled, and satisfied); LC is the list of agents committed to the goal, and LA is the list of agents that have already achieved the goal.
+----
