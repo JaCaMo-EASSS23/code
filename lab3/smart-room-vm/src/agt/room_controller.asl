@@ -1,10 +1,12 @@
+// This plan is triggered by an initial goal set in the .jcm project file.
+// Options refers to the possible temperature values agents can vote for.
 +!voting(Options)
    <- !open_voting(Id, Options);
       .wait(4000);
       !close_voting(Id).
 
 +!open_voting(Id, Options)
-   <- Id = 1; // Should be incremented when running multiple votes
+   <- Id = 1; // The identifier should be incremented when running multiple votes
       .concat(vote, Id, ArtNameS);
       .term2string(ArtNameT, ArtNameS);
       .all_names(AllAgents);
@@ -19,13 +21,19 @@
       // TODO (Task 4): link the voting machine artifact with the dweeter artifact
       vm::linkArtifacts(ArtId, "dweet", DweetArtId);
       vm::open(Options, Voters, 4000);
+      // In the current implementation, a new voting machine is created for each vote.
+      // The room controller broadcasts the name of the voting machine to all agents.
       .print("Artifact created, broadcasting artifact name: ", ArtNameT);
       .broadcast(tell, open_voting(ArtNameT));
    .
 
 +!close_voting(Id)
-   <- vm::close.
+   <- .print("Time is out, the vote should now be closed.");
+      // TODO (Tak 1): invoke close operation on the voting machine artifact
+      vm::close
+   .
 
+// This plan is triggerd when a voting result becomes available
 +vm::result(T)[artifact_name(ArtName)]
    <- .println("Creating a new goal to set temperature to ",T);
       .drop_desire(temperature(_));

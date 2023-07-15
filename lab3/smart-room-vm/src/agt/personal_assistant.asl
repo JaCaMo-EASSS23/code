@@ -5,12 +5,14 @@
       vm::focus(ArtId)
    .
 
-+vm::status("open") : vm::options(Options)
+// This plan is triggered when the status of a voting machine becomes "open". The plan context is used
+// to retrieve the voting options, which are exposed via an observable property.
++vm::status("open")[artifact_name(ArtName)] : vm::options(Options)[artifact_name(ArtName)]
    <- .print("New vote started with options: ", Options);
       ?pref_temp(Pref);
       ?closest(Pref, Options, Vote);
       .print("My preference is ", Pref, ", so I vote for ", Vote);
-      // TODO (Task 2): invoke vote operation on vm artifact
+      // TODO (Task 2): invoke vote operation on voting machine artifact
       vm::vote(Vote)
    .
 

@@ -18,7 +18,7 @@ import cartago.OPERATION;
 public class DweetArtifact extends Artifact {
   private final static String DWEET_ENDPOINT = "https://dweet.io/dweet/for/";
 
-  String dweetEndpoint;
+  private String dweetEndpoint;
 
   void init(String username) {
     dweetEndpoint = DWEET_ENDPOINT + username;
@@ -27,10 +27,8 @@ public class DweetArtifact extends Artifact {
   @LINK
   @OPERATION
   public void dweet(String message) {
-    // TODO: dweet endpoint for operator agent
-    // String dweetEndpoint = DWEET_ENDPOINT + this.getCurrentOpAgentId().getAgentName();
-
     BasicClassicHttpRequest request = new BasicClassicHttpRequest(Method.POST, dweetEndpoint);
+
     // Note: Dweet.io will ignore the payload if the content type is not set 
     request.setHeader(HttpHeaders.CONTENT_TYPE, "application/json");
     request.setEntity(new StringEntity("{ \"text\" : \"" + message + "\" }"));

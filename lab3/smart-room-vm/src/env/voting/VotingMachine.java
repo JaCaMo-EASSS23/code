@@ -16,6 +16,12 @@ import jason.asSyntax.ASSyntax;
 import jason.asSyntax.ListTerm;
 import jason.asSyntax.parser.ParseException;
 
+
+/**
+ * This class implements a voting machine used to vote among a number of options espressed as integer
+ * values. In our scenario, agents instantiate and use voting machines to reach consensus on the
+ * target temperature to be set in a shared room.
+ */
 @ARTIFACT_INFO(
   outports = {
     @OUTPORT(name = "dweet")
@@ -24,18 +30,18 @@ import jason.asSyntax.parser.ParseException;
 public class VotingMachine extends Artifact {
   private List<String> voters;
   private List<Integer> votes;
-  private int deadline;
+  private int timeout;
 
   public void init() {
-    // Task 1: define a status property with values open/closed
+    // TODO (Task 1): define a status property with values open/closed
     defineObsProperty("status", "closed");
   }
 
   @OPERATION
-  public void open(Object[] options, Object[] voters, int deadline) {
+  public void open(Object[] options, Object[] voters, int timeout) {
     this.voters = new ArrayList<>();
     this.votes = new ArrayList<>();
-    this.deadline = deadline;
+    this.timeout = timeout;
 
     ListTerm optionTerms = createOptionTermsList(options);
 
@@ -43,11 +49,11 @@ public class VotingMachine extends Artifact {
       this.voters.add(v.toString());
     }
 
-    // Task 1: expose the options as an observable property named "options"
+    // TODO (Task 1): expose the options as an observable property named "options"
     defineObsProperty("options", optionTerms);
-    // Task 1: expose the deadline as an observable property named "deadline"
-    defineObsProperty("deadline", this.deadline);
-    // Task 1: update the "status" observable property to "open" to announce that voting is open
+    // TODO (Task 1): expose the timeout as an observable property named "timeout"
+    defineObsProperty("timeout", this.timeout);
+    // TODO (Task 1): update the "status" observable property to "open" to announce that voting is open
     getObsProperty("status").updateValue("open");
 
     // execInternalOp("countdown");
@@ -74,25 +80,25 @@ public class VotingMachine extends Artifact {
   public void close() {
     int result = computeResult();
 
-    // Task 1: expose the result as an observable property named "result"
+    // TODO (Task 1): expose the result as an observable property named "result"
     defineObsProperty("result", result);
-    // Task 1: update the "status" observable property to "close" to announce that voting is closed
+    // TODO (Task 1): update the "status" observable property to "close" to announce that voting is closed
     getObsProperty("status").updateValue("closed");
 
     try {
       log("Publishing the result to dweet.io: " + result);
-      // Task 4: invoke the "dweet" linked operation and pass the result as a paramteter
+      // TODO (Task 4): invoke the "dweet" linked operation and pass the result as a paramteter
       execLinkedOp("dweet", "dweet", String.valueOf(result));
     } catch (OperationException e) {
       log("Failed to publish the result: " + e.getMessage());
     }
   }
 
-  // Task 3: implement an internal operation with a countdown. The internal operation should be
+  // TODO (Task 3): implement an internal operation with a countdown. The internal operation should be
   // invoked at the end of the open() operation.
   @INTERNAL_OPERATION
   private void countdown() {
-    await_time(deadline);
+    await_time(timeout);
     log("Voting is closing!");
     close();
   }
