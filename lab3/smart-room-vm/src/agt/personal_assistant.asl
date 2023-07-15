@@ -1,7 +1,6 @@
 +open_voting(ArtName)
-   <- // TODO (Task 2): look up the voting machine by artifact name
+   <- lookupArtifact(ArtName, ArtId);
       // TODO (Task 2): use the artifact ID returned by the lookup operation to focus on the voting machine 
-      .print("A new voting machine is available: ", ArtName);
    .
 
 // This plan is triggered when the status of a voting machine becomes "open". The plan context is used
@@ -11,7 +10,8 @@
       ?pref_temp(Pref);
       ?closest(Pref, Options, Vote);
       .print("My preference is ", Pref, ", so I vote for ", Vote);
-      // TODO (Task 2): invoke vote operation on voting machine artifact with the agent's Vote as a paratemer
+      // TODO (Task 2): invoke vote operation on voting machine artifact with the agent's Vote as a paratemer.
+      // Note that the voting machine is used within the vm namespace (see also usage by the room_controller agent).
    .
 
 // closest(Pref,Options,V): discovers the Option closser to Pref

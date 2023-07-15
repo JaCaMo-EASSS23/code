@@ -120,19 +120,69 @@ cd lab2/smart-room-ma
 
 == Environment Dimension (Lab 3)
 
-=== Task 1: Implement a usage interface for the voting machine
-- [define observable property `status` (with values `open`/`closed`) in the artifact's `init` method]
-- [implement operations for: `open`, `vote`, and `close`]
+We will now implement the voting mechanism as an artifact: agents will use a _voting machine_ artifact to select the target temperature for the shared room based on their individual preferences.
 
-=== Task 2: Instantiate and use a voting machine
-- [complete plan(s) for creating, starting, and stopping the voting machine]
-- [complete plan(s) for focusing on the voting machine and bidding]
+Most of the code required for this practical session is already provided in the link:lab3/smart-room-vm[lab3/smart-room-vm] project. The following tasks will guide you through adding the last lines of code that will bring everything together.
+
+=== Task 1: Implement the usage interface for the voting machine
+
+The artifact template for our voting machine is defined in the link:lab3/smart-room-vm/src/env/voting/VotingMachine.java[VotingMachine.java] class, but the usage interface is not yet fully implemented. Your first task is to complete this implementation. The following sub-tasks will guide you through it, note also the `TODO` items marked in comments in the Java class.
+
+- Task 1.1: Your very first task is to complete the artifact's `init` method by defining an observable property `status` and setting its value to  `open`.
+- Task 1.2: Your second task is to complete the implementation of the `open`, `vote`, and `close` operations.
+
+To solve these tasks, you will have to define and work with observable properties. Tips for a quick start:
+
+- you can have a look at the implementation of the link:lab3/smart-room-vm/src/env/devices/HVAC.java[HVAC artifact]
+- you can check out https://cartago.sourceforge.net/?page_id=69[Example 01 — Artifact definition, creation, and use] from https://cartago.sourceforge.net/?page_id=47[CArtAgO by Examples]
+
+
+=== Task 2: Instantiate and use the voting machine
+
+Your voting machine is now ready — and the room controller agent is, in fact, already using it (see link:lab3/smart-room-vm/src/agt/room_controller.asl[room_controller.asl]). Still, a few bits are missing.
+
+- Task 2.1: Your first task is to complete the `TODOs` defined in link:lab3/smart-room-vm/src/agt/personal_assistant.asl[personal_assistant.asl] so that agents can focus on the voting machine and vote for their preferences.
+
+- Task 2.2: The personal assistant agents are now expressing their votes, but still nothing is happening. That is becuase the voting is never closed. See the `TODO` on `line 33` of link:lab3/smart-room-vm/src/agt/room_controller.asl[room_controller.asl].
+
+To solve these tasks, you will need to use the CArtAgO API for working with artifacts in Jason. Tips for a quick start:
+
+* you will need to use the `focus` operation and to invoke artifact operations defined by the voting machine
+
+** see Lines 19 in link:lab3/smart-room-vm/src/agt/room_controller.asl[room_controller.asl] for an example of using the `focus` operation
+
+** see Line 24 in link:lab3/smart-room-vm/src/agt/room_controller.asl[room_controller.asl] for an example of invoking the `open` operation of the voting machine
+
+** note: the voting machine is defined within the `vm::` namespace (see Lines 19 and 24 above for usage examples)
 
 === Task 3: Implement automatic closing with a countdown
-- [implement an internal operation for closing the voting machine with a countdown]
+
+Our agents are now using the voting machine to set the temperature in the shared room. At the moment, however, the room controller agent needs to invoke the `close` operation on the voting machine to close the voting — although the voting machine is already configured with a timeout.
+
+Your task is to complete the implementation of the voting machine's `countdown` internal operation (see Line 100 in link:lab3/smart-room-vm/src/env/voting/VotingMachine.java[VotingMachine.java]). For an example of a similar implementation, see https://cartago.sourceforge.net/?page_id=108[Example 06 — Internal operations and timed await: implementing a clock] from https://cartago.sourceforge.net/?page_id=47[CArtAgO by Examples].
+
+Once you finish implementing the internal operation, make sure to:
+
+* uncomment the line that invokes the countdown at the end of the `open` operation definition (see `TODO` item)
+
+* udpate the `+!voting(Options)` plan of the room controller agent (see `TODOs`)
 
 === Task 4: Implement a linked operation
-- [implement a linked operation to publish to dweet.io]
+
+Your agents are happy with their brand new voting machine — and would like to showcase it to other agents via https://dweet.io/[Dweet.io]. Luckily, they already have a link:lab3/smart-room-vm/src/env/social/DweetArtifact.java[DweetArtifact] artifact template that they can use for this purpose.
+
+Your task is to complete the link:lab3/smart-room-vm/src/agt/room_controller.asl[room_controller.asl] agent program with the following steps (see `TODOs`):
+
+* to create an instance of a `DweetArtifact` after creating the voting machine
+
+* to link the voting machine to the created `DweetArtifact`` using the `linkArtifacts(ArtId1, "port", ArtId2)` operation
+
+** note: the voting machine artifact template already defines an output port named `publish-port`
+
+** for further examples and documentation on linking artifacts, see https://cartago.sourceforge.net/?page_id=126[Example 08 — Linkability] from https://cartago.sourceforge.net/?page_id=47[CArtAgO by Examples]
+
+
+If you enjoyed this practical session, make sure to check out https://cartago.sourceforge.net/?page_id=47[CArtAgO by Examples] for a complete tour of all features supported for the enviornment dimension.
 
 
 == Organisation Dimension (Lab 4)

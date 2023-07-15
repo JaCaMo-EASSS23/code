@@ -34,7 +34,6 @@ public class VotingMachine extends Artifact {
 
   public void init() {
     // TODO (Task 1): define a status property with values open/closed
-    defineObsProperty("status", "closed");
   }
 
   @OPERATION
@@ -53,6 +52,9 @@ public class VotingMachine extends Artifact {
     defineObsProperty("timeout", this.timeout);
 
     // TODO (Task 1): update the "status" observable property to "open" to announce that voting is open
+
+    // TODO (Task 3): uncomment this line after implementing the countfown internal operation
+    // execInternalOp("countdown");
   }
 
   @OPERATION
@@ -80,13 +82,10 @@ public class VotingMachine extends Artifact {
 
     // TODO (Task 1): update the "status" observable property to "close" to announce that voting is closed
 
+    // TODO (Task 4): uncomment this block after completing the room controller agent program
     // try {
-      log("Publishing the result to dweet.io: " + result);
-
-      // TODO (Task 4): invoke the "dweet" linked operation and pass the result as a paramteter.
-      // Note that the dweet operation requires a string as a parameter (here result is an int).
-      // You can uncomment and use the surrounding try block to catch exceptions.
-
+      // log("Publishing the result to dweet.io: " + result);
+      // execLinkedOp("publish-port", "dweet", String.valueOf(result));
     // } catch (OperationException e) {
     //   log("Failed to publish the result: " + e.getMessage());
     // }
