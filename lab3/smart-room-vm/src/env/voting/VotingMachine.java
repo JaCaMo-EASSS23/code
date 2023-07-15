@@ -24,7 +24,7 @@ import jason.asSyntax.parser.ParseException;
  */
 @ARTIFACT_INFO(
   outports = {
-    @OUTPORT(name = "dweet")
+    @OUTPORT(name = "publish-port")
   }
 )
 public class VotingMachine extends Artifact {
@@ -41,22 +41,18 @@ public class VotingMachine extends Artifact {
   public void open(Object[] options, Object[] voters, int timeout) {
     this.voters = new ArrayList<>();
     this.votes = new ArrayList<>();
-    this.timeout = timeout;
-
-    ListTerm optionTerms = createOptionTermsList(options);
 
     for (Object v: voters) {
       this.voters.add(v.toString());
     }
 
-    // TODO (Task 1): expose the options as an observable property named "options"
-    defineObsProperty("options", optionTerms);
-    // TODO (Task 1): expose the timeout as an observable property named "timeout"
-    defineObsProperty("timeout", this.timeout);
-    // TODO (Task 1): update the "status" observable property to "open" to announce that voting is open
-    getObsProperty("status").updateValue("open");
+    ListTerm optionTerms = createOptionTermsList(options);
+    // TODO (Task 1): expose the options in optionTerms as an observable property named "options"
 
-    // execInternalOp("countdown");
+    this.timeout = timeout;
+    defineObsProperty("timeout", this.timeout);
+
+    // TODO (Task 1): update the "status" observable property to "open" to announce that voting is open
   }
 
   @OPERATION
@@ -81,26 +77,29 @@ public class VotingMachine extends Artifact {
     int result = computeResult();
 
     // TODO (Task 1): expose the result as an observable property named "result"
-    defineObsProperty("result", result);
-    // TODO (Task 1): update the "status" observable property to "close" to announce that voting is closed
-    getObsProperty("status").updateValue("closed");
 
-    try {
+    // TODO (Task 1): update the "status" observable property to "close" to announce that voting is closed
+
+    // try {
       log("Publishing the result to dweet.io: " + result);
-      // TODO (Task 4): invoke the "dweet" linked operation and pass the result as a paramteter
-      execLinkedOp("dweet", "dweet", String.valueOf(result));
-    } catch (OperationException e) {
-      log("Failed to publish the result: " + e.getMessage());
-    }
+
+      // TODO (Task 4): invoke the "dweet" linked operation and pass the result as a paramteter.
+      // Note that the dweet operation requires a string as a parameter (here result is an int).
+      // You can uncomment and use the surrounding try block to catch exceptions.
+
+    // } catch (OperationException e) {
+    //   log("Failed to publish the result: " + e.getMessage());
+    // }
   }
 
   // TODO (Task 3): implement an internal operation with a countdown. The internal operation should be
   // invoked at the end of the open() operation.
   @INTERNAL_OPERATION
   private void countdown() {
-    await_time(timeout);
     log("Voting is closing!");
-    close();
+
+    // TODO (Task 3): Use the await_time method to wait for the specified timeout, then invoke the
+    // close operation.
   }
 
   // This method is used to convert datum from Jason to Java
