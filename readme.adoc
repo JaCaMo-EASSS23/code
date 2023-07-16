@@ -191,7 +191,7 @@ If you enjoyed this practical session, make sure to check out https://cartago.so
 
 * Exercise 2: open the project `lab4/e2`, read the XML organization specification and identify the organization roles, goals, missions and norms. Execute the application, open the _organization inspector_ (http://localhost:3171) and verify the state of the agents' goals. What are the advantages and disadvantages of the organization approach to coordination compared with the approach in Exercise 1?
 
-* Exercise 3: comment out the lines 15-21 in `src/agt/forum_agents` and execute the application. Use the _organization inspector_ to verify why the application does not execute properly. Hint: Look at the msg_vacation scheme.
+* Exercise 3: comment out the lines 15-21 in `src/agt/forum_agents.asl` and execute the application. Use the _organization inspector_ to verify why the application does not execute properly. Hint: Look at the msg_vacation scheme.
 
 === Task 2: Changing the organization
 
@@ -202,6 +202,8 @@ If you enjoyed this practical session, make sure to check out https://cartago.so
 * Exercise 3: change the order of `announce_options` and `open_voting` in the scheme `decide_temp`. What changes do you observe in the outcome?
 
 * Exercise 4: parallelize the execution of the `announce_options` and `open_voting`. Analyze the result of the new scheme in the _organization inspector_.
+
+* Exercise 5: replace line 14 in `src/agt/personal_assistant.asl` (`?options(Options)`) by `?vm::options(Options) ;`. This change allows to simplify the `decide_temp` scheme and the `src/agt/room_controller.asl` agent code. Identify and make the simplification.
 
 === Task 3: Handling the state of the organization
 
