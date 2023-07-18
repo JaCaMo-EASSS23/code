@@ -114,11 +114,11 @@ cd lab2/smart-room-ma
 
 * Exercise 5: run the voting protocol twice, with two different options and notice possible problems.
 
-* Exercise 6: currently, the `id` of the conversation is fixed to 1, this may cause problems when counting the votes. Change the program of the room controller so that the identification is a parameter for the goal `voting`.
+* Exercise 6: currently, the `id` of the conversation is fixed to 1, this may cause problems when counting the votes. Change the program of the room controller so that the identification is an argument for the goal `voting`.
 
 * Exercise 7: upgrade the previous version so that the conversation id value is incremented each time a voting protocol is executed.
 
-* Exercise 8: add a new personal assistant. Does the application works properly? The rule `all_votes_received` is hard-coded for 3 participants. How to make it flexible? Think about possible solutions. Hints: see the internal actions link:https://jason.sourceforge.net/api/jason/stdlib/all_names.html[`.all_names`] and link:https://jason.sourceforge.net/api/jason/stdlib/df_register.html[`.df_register`].
+* Exercise 8: add a new personal assistant. Does the application work properly? The rule `all_votes_received` is hard-coded for 3 participants. How to make it flexible? Think about possible solutions. Hints: see the internal actions link:https://jason.sourceforge.net/api/jason/stdlib/all_names.html[`.all_names`] and link:https://jason.sourceforge.net/api/jason/stdlib/df_register.html[`.df_register`].
 
 
 == Environment Dimension (Lab 3)
