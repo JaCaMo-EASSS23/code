@@ -26,9 +26,9 @@ image:doc/figs/smart-room1.png[]
 
 == Agent Dimension (Lab 1)
 
-=== Task 1: run the initial project for the smart room scenario
+=== Task 1: Run the initial project for the smart room scenario
 
-The simplest way to run the examples and do the exercises is by using https://gitpod.io/#https://github.com/JaCaMo-EASSS23/code[GitPod, following this link] (a github account is required). You can also work locally by cloning this repository (https://github.com/JaCaMo-EASSS23/code). Java and VSCode should be installed in this case.
+The simplest way to run the examples and do the exercises is by using https://gitpod.io/#https://github.com/JaCaMo-EASSS23/code[GitPod, following this link] (a github account is required). You can also work locally by cloning this repository (https://github.com/JaCaMo-EASSS23/code). Java JDK 17+ and VSCode should be installed locally in this case.
 
 To run the initial project, type the commands below in the terminal:
 ----
@@ -61,12 +61,12 @@ replacing the last number 10 by the current temperature of the room.
 
 * Exercise 6: open the project in folder `lab1/e6` and take a look at the room controller program. There is a difference in the last lines (line 17). Evaluate the reasons for that modification and its problems. Some ideas about how to fix?
 
-* Exercise 7: open the project in folder `lab1/e7` and take a look at the room controller program. The target temperature is as an argument of goal `keep_temperature`. The project, as it is, works. But what happens if a line like `!keep_temperature(35)` is added in the program? Explain the behavior produced buy this change.
+* Exercise 7: open the project in folder `lab1/e7` and take a look at the room controller program. The target temperature is as an argument of goal `keep_temperature`. The project, as it is, works. But what happens if a line like `!keep_temperature(35)` is added in the program? Explain the behavior produced by this change.
 
 
 == Agent Communication (Lab 2)
 
-=== Task 1: experiment different performatives
+=== Task 1: Experiment different performatives
 
 * Exercise 1: open the project `lab2/e1`, read the `.jcm` file and the program of the two agents, and execute the application. Now change the plan of Bob to:
 +
