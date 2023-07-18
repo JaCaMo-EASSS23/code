@@ -7,6 +7,7 @@
 
 +!open_voting[scheme(S)]
    <- // get voters from organization (agents playing assistant)
+      .wait(100) ;
       .findall(A, play(A, assistant, _), Voters);
 
       // get the voting options 
