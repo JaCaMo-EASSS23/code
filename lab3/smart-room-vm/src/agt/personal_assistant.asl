@@ -9,7 +9,7 @@
    <- .print("New vote started with options: ", Options);
       ?pref_temp(Pref);
       ?closest(Pref, Options, Vote);
-      .print("My preference is ", Pref, ", so I vote for ", Vote);
+      .print("My preference is ", Pref, ", so I will vote for ", Vote);
       // TODO (Task 2): invoke vote operation on voting machine artifact with the agent's Vote as a paratemer.
       // Note that the voting machine is used within the vm namespace (see also usage by the room_controller agent).
    .

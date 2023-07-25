@@ -139,6 +139,7 @@ To solve these tasks, you will have to define and work with observable propertie
 - you can have a look at the implementation of the link:lab3/smart-room-vm/src/env/devices/HVAC.java[HVAC artifact]
 - you can check out https://cartago.sourceforge.net/?page_id=69[Example 01 — Artifact definition, creation, and use] from https://cartago.sourceforge.net/?page_id=47[CArtAgO by Examples]
 
+*Note:* The personal assistant agents are not yet expressing any votes. If you run the project at this point, the voting machine will always return the first option as the winning option (default behavior).
 
 === Task 2: Instantiate and use the voting machine
 

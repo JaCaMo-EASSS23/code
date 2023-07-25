@@ -30,6 +30,7 @@ import jason.asSyntax.parser.ParseException;
 public class VotingMachine extends Artifact {
   private List<String> voters;
   private List<Integer> votes;
+  private List<Byte> options;
   private int timeout;
 
   public void init() {
@@ -40,9 +41,14 @@ public class VotingMachine extends Artifact {
   public void open(Object[] options, Object[] voters, int timeout) {
     this.voters = new ArrayList<>();
     this.votes = new ArrayList<>();
+    this.options = new ArrayList<>();
 
     for (Object v: voters) {
       this.voters.add(v.toString());
+    }
+
+    for (Object o : options) {
+      this.options.add((Byte) o);
     }
 
     ListTerm optionTerms = createOptionTermsList(options);
@@ -120,6 +126,14 @@ public class VotingMachine extends Artifact {
   private int computeResult() {
     // Aggregate the votes
     Map<Integer, Long> counts = votes.stream().collect(Collectors.groupingBy(x -> x, Collectors.counting()));
+
+    if (counts.isEmpty()) {
+      int defaultOption = options.get(0).intValue();
+      log("There were no votes expressed, so returning the first option: " + defaultOption);
+
+      return defaultOption;
+    }
+
     // Returns the option with most votes
     Integer result = Collections.max(counts.entrySet(), Map.Entry.comparingByValue()).getKey();
 
