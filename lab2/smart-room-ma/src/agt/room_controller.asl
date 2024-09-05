@@ -1,7 +1,8 @@
 +!voting(Options) 
    <- !open_voting(Id,Options);
       !wait_votes(Id);
-      !close_voting(Id).
+      !close_voting(Id,T);
+      !temperature(T).
 
 +!open_voting(Id,Options)
    <- Id = 1;
@@ -13,12 +14,10 @@ all_votes_received(Id)
   :- .count(vote(Id,_)[source(_)], 3).  // equals number of votes
 
 
-+!close_voting(Id)
++!close_voting(Id,T)
    <- ?most_voted(Id,T);
       .println("New goal to set temperature to ",T);
-      .broadcast(tell, close_voting(Id,T));
-      !temperature(T);
-   .
+      .broadcast(tell, close_voting(Id,T)).
 most_voted(Id,T)
    :- .findall(
           t(C,V), 
