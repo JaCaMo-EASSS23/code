@@ -3,7 +3,7 @@
 mas exercises {
 
     agent alice : forum_agent.asl {
-        beliefs: message("The montains are beautiful!")
+        beliefs: message("The mountains are beautiful!")
         goals: submit_post
         focus: forum.vacation
     }
