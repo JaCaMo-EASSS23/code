@@ -118,7 +118,7 @@ cd lab2/smart-room-ma
 
 * Exercise 7: upgrade the previous version so that the conversation id value is incremented each time a voting protocol is executed.
 
-* Exercise 8: add a new personal assistant. Does the application work properly? The rule `all_votes_received` is hard-coded for 3 participants. How to make it flexible? Think about possible solutions. Hints: see the internal actions link:https://jason.sourceforge.net/api/jason/stdlib/all_names.html[`.all_names`] and link:https://jason.sourceforge.net/api/jason/stdlib/df_register.html[`.df_register`].
+* Exercise 8: add a new personal assistant. Does the application work properly? The rule `all_votes_received` is hard-coded for 3 participants. How to make it flexible? Think about possible solutions. Hints: see the internal actions link:https://jason-lang.github.io/api/jason/stdlib/all_names.html[`.all_names`] and link:https://jason-lang.github.io/api/jason/stdlib/df_register.html[`.df_register`].
 
 
 == Environment Dimension (Lab 3)
